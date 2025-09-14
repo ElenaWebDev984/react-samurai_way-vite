@@ -1,6 +1,6 @@
 import './App.css'
 
-function App() {
+export function App() {
 
     const tracks = [
         {
@@ -37,4 +37,4 @@ function App() {
     )
 }
 
-export default App
+export const name = "AppFileComponent"

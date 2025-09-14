@@ -21,19 +21,27 @@ function App() {
         },
     ]
 
+    const li1 = (
+        <li>
+            <div>{tracks[0].title}</div>
+            <audio controls src={tracks[0].url}></audio>
+        </li>
+    )
+
+    const li2 = (
+        <li>
+            <div>{tracks[1].title}</div>
+            <audio controls src={tracks[1].url}></audio>
+        </li>
+    )
+
 
     return (
         <>
             <h1>Musicfun player</h1>
             <ul>
-                <li>
-                    <div>{tracks[0].title}</div>
-                    <audio controls src={tracks[0].url}></audio>
-                </li>
-                <li>
-                    <div>{tracks[1].title}</div>
-                    <audio controls src={tracks[1].url}></audio>
-                </li>
+                {li1}
+                {li2}
             </ul>
         </>
     )

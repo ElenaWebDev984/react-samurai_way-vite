@@ -1,38 +1,68 @@
 import './App.css'
-import {useState} from "react";
-
-
-const tracks = [
-    {
-        id: 1,
-        isSelected: false,
-        title: "Musicfun soundtrack",
-        url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
-    },
-    {
-        id: 2,
-        isSelected: false,
-        title: "Musicfun soundtrack instrumental",
-        url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-    },
-    {
-        id: 3,
-        isSelected: true,
-        title: "Musicfun soundtrack instrumental",
-        url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-    },
-    {
-        id: 4,
-        isSelected: false,
-        title: "Musicfun soundtrack instrumental",
-        url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-    },
-]
+import {useEffect, useState} from "react";
 
 
 export function App() {
 
     const [selectedTrackId, setSelectedTrackId] = useState(null)
+    const [tracks, setTracks] = useState([
+        {
+            id: 1,
+            isSelected: false,
+            title: "Musicfun soundtrack",
+            url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
+        },
+        {
+            id: 2,
+            isSelected: false,
+            title: "Musicfun soundtrack instrumental",
+            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+        },
+        {
+            id: 3,
+            isSelected: true,
+            title: "Musicfun soundtrack instrumental",
+            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+        },
+        {
+            id: 4,
+            isSelected: false,
+            title: "Musicfun soundtrack instrumental",
+            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+        },
+    ])
+
+    const effect = () => {
+        console.log('effect')
+        setTracks([
+            {
+                id: 1,
+                isSelected: false,
+                title: "Musicfun soundtrack",
+                url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
+            },
+            {
+                id: 2,
+                isSelected: false,
+                title: "Musicfun soundtrack instrumental",
+                url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+            },
+            {
+                id: 3,
+                isSelected: true,
+                title: "Musicfun soundtrack instrumental",
+                url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+            },
+            {
+                id: 4,
+                isSelected: false,
+                title: "Musicfun soundtrack instrumental",
+                url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+            },
+        ])
+    }
+
+    useEffect(effect)
 
     if (tracks === null) {
         return (
@@ -56,7 +86,8 @@ export function App() {
     return (
         <>
             <h1>Musicfun player</h1>
-            <button onClick={() => setSelectedTrackId(null)}>Reset selection</button>{" "}
+            <button onClick={() => setSelectedTrackId(null)}>Reset selection</button>
+            {" "}
             <ul>
                 {tracks.map((track) => (
                     <li key={track.id} style={{border: track.id === selectedTrackId ? '1px solid orange' : 'none'}}>

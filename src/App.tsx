@@ -2,25 +2,33 @@ import './App.css'
 
 export function App() {
 
-    // const tracks = [
-    //     {
-    //         title: "Musicfun soundtrack",
-    //         url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
-    //     },
-    //     {
-    //         title: "Musicfun soundtrack instrumental",
-    //         url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-    //     },
-    //     {
-    //         title: "Musicfun soundtrack instrumental",
-    //         url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-    //     },
-    //     {
-    //         title: "Musicfun soundtrack instrumental",
-    //         url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-    //     },
-    // ]
-    const tracks = null
+    const tracks = [
+        {
+            id: 1,
+            isSelected: false,
+            title: "Musicfun soundtrack",
+            url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
+        },
+        {
+            id: 2,
+            isSelected: false,
+            title: "Musicfun soundtrack instrumental",
+            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+        },
+        {
+            id: 3,
+            isSelected: true,
+            title: "Musicfun soundtrack instrumental",
+            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+        },
+        {
+            id: 4,
+            isSelected: false,
+            title: "Musicfun soundtrack instrumental",
+            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+        },
+    ]
+
 
     if (tracks === null) {
         return (
@@ -31,19 +39,18 @@ export function App() {
         )
     }
 
-    const newLiReactElements = tracks.map((track) => (
-        <li>
-            <div>{track.title}</div>
-            <audio controls src={track.url}></audio>
-        </li>
-    ))
-
-
 
     return (
         <>
             <h1>Musicfun player</h1>
-            <ul>{newLiReactElements}</ul>
+            <ul>
+                {tracks.map((track) => (
+                    <li key={track.id} style={{border: track.isSelected ? "1px solid orange" : "none"}}>
+                        <div>{track.title}</div>
+                        <audio controls src={track.url}></audio>
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }

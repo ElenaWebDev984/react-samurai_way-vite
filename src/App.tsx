@@ -59,7 +59,7 @@ export function App() {
                     <li key={track.id}
                         style={{border: track.id === selectedTrackId ? "1px solid orange" : "none"}}
                     >
-                        <div>{track.title}</div>
+                        <div onClick={() => alert(track.id)}>{track.title}</div>
                         <audio controls src={track.url}></audio>
                     </li>
                 ))}

@@ -82,21 +82,28 @@ export function App() {
 
 
     return (
-        <>
+        <div>
             <h1>Musicfun player</h1>
             <button onClick={() => setSelectedTrackId(null)}>Reset selection</button>
             {" "}
-            <ul>
-                {tracks.map((track) => (
-                    <li key={track.id} style={{border: track.id === selectedTrackId ? '1px solid orange' : 'none'}}>
-                        <div onClick={() => {
-                            setSelectedTrackId(track.id)
-                        }}>{track.title}</div>
-                        <audio src={track.srс} controls={true}/>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <div style={{display: "flex", gap: "30px"}}>
+                <ul>
+                    {tracks.map((track) => (
+                        <li key={track.id}
+                            style={{border: track.id === selectedTrackId ? '1px solid orange' : 'none'}}>
+                            <div onClick={() => {
+                                setSelectedTrackId(track.id)
+                            }}>{track.title}</div>
+                            <audio src={track.srс} controls={true}/>
+                        </li>
+                    ))}
+                </ul>
+                <div>
+                    <h3>Details</h3>
+                    {selectedTrackId === null ? 'Track is not selected' : ''}
+                </div>
+            </div>
+        </div>
     )
 }
 

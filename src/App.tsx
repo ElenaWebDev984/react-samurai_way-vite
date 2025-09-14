@@ -2,24 +2,34 @@ import './App.css'
 
 export function App() {
 
-    const tracks = [
-        {
-            title: "Musicfun soundtrack",
-            url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
-        },
-        {
-            title: "Musicfun soundtrack instrumental",
-            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-        },
-        {
-            title: "Musicfun soundtrack instrumental",
-            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-        },
-        {
-            title: "Musicfun soundtrack instrumental",
-            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-        },
-    ]
+    // const tracks = [
+    //     {
+    //         title: "Musicfun soundtrack",
+    //         url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
+    //     },
+    //     {
+    //         title: "Musicfun soundtrack instrumental",
+    //         url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+    //     },
+    //     {
+    //         title: "Musicfun soundtrack instrumental",
+    //         url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+    //     },
+    //     {
+    //         title: "Musicfun soundtrack instrumental",
+    //         url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+    //     },
+    // ]
+    const tracks = null
+
+    if (tracks === null) {
+        return (
+            <div>
+                <h1>Musicfun player</h1>
+                <span>Loading...</span>
+            </div>
+        )
+    }
 
     const newLiReactElements = tracks.map((track) => (
         <li>
@@ -28,14 +38,6 @@ export function App() {
         </li>
     ))
 
-    if(tracks.length === 0){
-        return (
-            <div>
-                <h1>Musicfun player</h1>
-                <span>No tracks</span>
-            </div>
-        )
-    }
 
 
     return (

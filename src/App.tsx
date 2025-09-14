@@ -56,7 +56,7 @@ export function App() {
     return (
         <>
             <h1>Musicfun player</h1>
-            <button onClick={() => setSelectedTrackId(null)}>Reset selection</button>
+            <button onClick={() => setSelectedTrackId(null)}>Reset selection</button>{" "}
             <ul>
                 {tracks.map((track) => (
                     <li key={track.id} style={{border: track.id === selectedTrackId ? '1px solid orange' : 'none'}}>

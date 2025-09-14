@@ -1,34 +1,36 @@
 import './App.css'
 
+
+const tracks = [
+    {
+        id: 1,
+        isSelected: false,
+        title: "Musicfun soundtrack",
+        url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
+    },
+    {
+        id: 2,
+        isSelected: false,
+        title: "Musicfun soundtrack instrumental",
+        url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+    },
+    {
+        id: 3,
+        isSelected: true,
+        title: "Musicfun soundtrack instrumental",
+        url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+    },
+    {
+        id: 4,
+        isSelected: false,
+        title: "Musicfun soundtrack instrumental",
+        url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
+    },
+]
+
+const selectedTrackId = 1
+
 export function App() {
-
-    const tracks = [
-        {
-            id: 1,
-            isSelected: false,
-            title: "Musicfun soundtrack",
-            url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
-        },
-        {
-            id: 2,
-            isSelected: false,
-            title: "Musicfun soundtrack instrumental",
-            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-        },
-        {
-            id: 3,
-            isSelected: true,
-            title: "Musicfun soundtrack instrumental",
-            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-        },
-        {
-            id: 4,
-            isSelected: false,
-            title: "Musicfun soundtrack instrumental",
-            url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-        },
-    ]
-
 
     if (tracks === null) {
         return (
@@ -39,7 +41,14 @@ export function App() {
         )
     }
 
-    const selectedTrackId = 1
+    if (tracks.length === 0) {
+        return (
+            <div>
+                <h1>Musicfun player</h1>
+                <span>No tracks</span>
+            </div>
+        )
+    }
 
 
     return (

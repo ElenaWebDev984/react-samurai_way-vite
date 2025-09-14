@@ -21,24 +21,18 @@ function App() {
         },
     ]
 
-    const liReactElements = [
+    const newLiReactElements = tracks.map((track) => (
         <li>
-            <div>{tracks[0].title}</div>
-            <audio controls src={tracks[0].url}></audio>
-        </li>,
-        <li>
-            <div>{tracks[1].title}</div>
-            <audio controls src={tracks[1].url}></audio>
-        </li>,
-    ]
+            <div>{track.title}</div>
+            <audio controls src={track.url}></audio>
+        </li>
+    ))
 
 
     return (
         <>
             <h1>Musicfun player</h1>
-            <ul>
-                {liReactElements}
-            </ul>
+            <ul>{newLiReactElements}</ul>
         </>
     )
 }

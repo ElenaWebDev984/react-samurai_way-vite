@@ -32,7 +32,7 @@ export function App() {
         },
     ])
 
-    const effect = () => {
+    useEffect(() => {
         console.log('effect')
         setTracks([
             {
@@ -60,9 +60,7 @@ export function App() {
                 url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
             },
         ])
-    }
-
-    useEffect(effect)
+    }, [])
 
     if (tracks === null) {
         return (

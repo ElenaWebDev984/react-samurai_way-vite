@@ -28,6 +28,15 @@ export function App() {
         </li>
     ))
 
+    if(tracks.length === 0){
+        return (
+            <div>
+                <h1>Musicfun player</h1>
+                <span>No tracks</span>
+            </div>
+        )
+    }
+
 
     return (
         <>

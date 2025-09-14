@@ -1,4 +1,5 @@
 import {createRoot} from "react-dom/client";
+import "./index.css" // side-effect: CSS подключается сборщиком
 import App from "./App.tsx";
 
 const rootEl = document.getElementById("root")

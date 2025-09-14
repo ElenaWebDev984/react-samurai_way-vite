@@ -39,13 +39,17 @@ export function App() {
         )
     }
 
+    const selectedTrackId = 1
+
 
     return (
         <>
             <h1>Musicfun player</h1>
             <ul>
                 {tracks.map((track) => (
-                    <li key={track.id} style={{border: track.isSelected ? "1px solid orange" : "none"}}>
+                    <li key={track.id}
+                        style={{border: track.id === selectedTrackId ? "1px solid orange" : "none"}}
+                    >
                         <div>{track.title}</div>
                         <audio controls src={track.url}></audio>
                     </li>

@@ -34,32 +34,16 @@ export function App() {
 
     useEffect(() => {
         console.log('effect')
-        setTracks([
-            {
-                id: 1,
-                isSelected: false,
-                title: "Musicfun soundtrack",
-                url: "https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3",
+
+        fetch("https://musicfun.it-incubator.app/api/1.0/playlists/tracks", {
+            headers: {
+                "api-key": "15b4b2aa-31f6-431e-bf55-aee28898f0a1",
             },
-            {
-                id: 2,
-                isSelected: false,
-                title: "Musicfun soundtrack instrumental",
-                url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-            },
-            {
-                id: 3,
-                isSelected: true,
-                title: "Musicfun soundtrack instrumental",
-                url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-            },
-            {
-                id: 4,
-                isSelected: false,
-                title: "Musicfun soundtrack instrumental",
-                url: " https://musicfun.it-incubator.app/api/samurai-way-soundtrack-instrumental.mp3",
-            },
-        ])
+        })
+            .then((res) => res.json())
+            .then((json) => {
+                setTracks(json.data)
+            })
     }, [])
 
     if (tracks === null) {
@@ -80,7 +64,7 @@ export function App() {
         )
     }
 
-    let selectedTrack = null;
+    let selectedTrack = tracks.find(track => track.id === selectedTrackId);
 
 
     return (
